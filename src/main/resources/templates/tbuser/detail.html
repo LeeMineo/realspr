@@ -1,9 +1,11 @@
 <!---->
+<!--회원정보 조회 및 업데이트-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <!-- jQuery 라이브러리를 포함하여 AJAX 요청을 처리함 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 <body>
@@ -24,19 +26,19 @@ phone
 
     function detail(){
         $.ajax({
-            url : '/api/tbuser/get/' + $("#detail_id").val(),
+            url : '/api/tbuser/get/' + $("#detail_id").val(), // 사용자 ID를 URL에 포함하여 조회 요청
             type : 'GET',
             beforeSend:function(){
-                //
+                // 요청 전 실행할 코드
             },
             success : function(data){
-                alert(JSON.stringify(data));
+                alert(JSON.stringify(data)); // 성공적으로 응답을 받으면 데이터 알림
             },
             error : function(request, status, error){
-                alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+                alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error); // 에러 발생 시 알림
             },
             complete:function(){
-                //
+                // 요청 완료 후 실행할 코드
             }
         });
     }
@@ -55,7 +57,7 @@ phone
                 //
             },
             success : function(data){
-                alert(JSON.stringify(data));
+                alert(JSON.stringify(data)); // 성공적으로 응답을 받으면 데이터 알림
             },
             error : function(request, status, error){
                 alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
